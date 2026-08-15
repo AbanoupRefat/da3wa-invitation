@@ -1,0 +1,261 @@
+/* ============================================
+   Page 7 — RSVP
+   ============================================ */
+
+.rsvp-page {
+
+  padding: var(--space-2xl) var(--page-padding);
+  gap: var(--space-xl);
+  min-height: 100dvh;
+}
+
+.rsvp-page__header {
+  text-align: center;
+}
+
+.rsvp-page__title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.rsvp-page__subtitle {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--ivory-muted);
+}
+
+/* --- Form Wrapper --- */
+.rsvp-form-wrapper {
+  width: 100%;
+  max-width: 520px;
+  padding: var(--space-xl);
+  opacity: 0;
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* --- Form Groups --- */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--gold-soft);
+  letter-spacing: 0.05em;
+}
+
+.optional {
+  font-size: 0.8rem;
+  color: var(--ivory-muted);
+  font-family: var(--font-body);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  background: rgba(11, 26, 21, 0.6);
+  border: 1px solid rgba(201, 162, 75, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--ivory);
+  font-size: 0.95rem;
+  transition: all var(--transition-smooth);
+}
+
+.form-input::placeholder {
+  color: rgba(244, 237, 224, 0.3);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.1);
+  background: rgba(11, 26, 21, 0.8);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23C9A24B' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-select option {
+
+  color: var(--ivory);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: var(--font-body);
+}
+
+/* --- Attendance Radio Cards --- */
+.attendance-options {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.attendance-option {
+  flex: 1;
+  cursor: pointer;
+}
+
+.attendance-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.attendance-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-sm);
+  background: rgba(11, 26, 21, 0.6);
+  border: 1px solid rgba(201, 162, 75, 0.15);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-smooth);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--ivory-muted);
+  text-align: center;
+}
+
+.attendance-icon {
+  font-size: 1.5rem;
+}
+
+.attendance-option input[type="radio"]:checked + .attendance-card {
+  border-color: var(--gold);
+  background: rgba(201, 162, 75, 0.08);
+  color: var(--ivory);
+  box-shadow: 0 0 20px rgba(201, 162, 75, 0.1);
+}
+
+.attendance-option:hover .attendance-card {
+  border-color: rgba(201, 162, 75, 0.4);
+  background: rgba(201, 162, 75, 0.04);
+}
+
+/* --- Submit Button --- */
+.rsvp-submit {
+  width: 100%;
+  padding: 1rem;
+  margin-top: var(--space-sm);
+}
+
+.rsvp-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(11, 26, 21, 0.3);
+  border-top-color: var(--bg-dark);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Success State --- */
+.rsvp-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  text-align: center;
+  max-width: 400px;
+  opacity: 0;
+}
+
+.rsvp-success__icon {
+  color: var(--gold);
+  animation: successPop 0.5s ease;
+}
+
+@keyframes successPop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.rsvp-success h3 {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.rsvp-success p {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--ivory-muted);
+  line-height: 1.6;
+}
+
+/* --- Error State --- */
+.rsvp-error {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.rsvp-error p {
+  color: var(--error);
+  font-size: 0.9rem;
+}
+
+.retry-link {
+  color: var(--gold);
+  text-decoration: underline;
+  font-size: 0.9rem;
+  margin-top: var(--space-sm);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* --- Footer --- */
+.rsvp-footer {
+  text-align: center;
+  margin-top: auto;
+  padding-top: var(--space-xl);
+}
+
+.rsvp-footer .script-text {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.rsvp-footer__date {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--ivory-muted);
+  letter-spacing: 0.1em;
+  margin-top: var(--space-xs);
+}
+
+/* --- Mobile --- */
+@media (max-width: 480px) {
+  .rsvp-form-wrapper {
+    padding: var(--space-lg);
+  }
+
+  .attendance-options {
+    flex-direction: column;
+  }
+}

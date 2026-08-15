@@ -1,0 +1,64 @@
+/* ============================================
+   ScrollIndicator
+   ============================================ */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--gold-soft);
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  z-index: 10;
+}
+
+.scroll-indicator.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-indicator__text {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.scroll-indicator__chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: -4px;
+}
+
+.chevron {
+  opacity: 0;
+  animation: chevronBounce 2s infinite;
+  color: var(--gold);
+}
+
+.chevron--delayed {
+  animation-delay: 0.3s;
+  margin-top: -12px;
+}
+
+@keyframes chevronBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
