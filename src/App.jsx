@@ -59,9 +59,20 @@ function App() {
 
   const playAudio = useCallback(() => {
     if (!audioRef.current) return;
+    
+    // Start at 50% volume
+    audioRef.current.volume = 0.5;
+    
     audioRef.current.play().then(() => {
       setIsPlaying(true);
       setHasInteracted(true);
+      
+      // Fade to 100% volume over 1.25 seconds
+      gsap.to(audioRef.current, { 
+        volume: 1, 
+        duration: 1.25, 
+        ease: 'power1.inOut' 
+      });
     }).catch(e => console.log('Autoplay blocked:', e));
   }, []);
 
