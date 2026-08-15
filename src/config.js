@@ -5,6 +5,12 @@
  * All pages pull their content from here.
  */
 
+// Get base URL for GitHub Pages deployment
+const base = import.meta.env.BASE_URL;
+
+// Helper for local assets
+const asset = (path) => `${base}${path.replace(/^\//, '')}`;
+
 // Curated high-quality stock images from Unsplash (free to use)
 const IMAGES = {
   // Atmospheric / Backgrounds
@@ -27,9 +33,9 @@ const IMAGES = {
   couple4: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80&auto=format',
   
   // Ring ceremony — 3 transparent PNG assets
-  groomHandSide: '/images/groom-hand-side.png',     // Draggable: groom holding ring
-  brideHandBare: '/images/bride-hand-bare.png',      // Target: bride's bare hand
-  brideHandRing: '/images/bride-hand-ring.png',      // Success: bride wearing ring
+  groomHandSide: asset('/images/groom-hand-side.png'),     // Draggable: groom holding ring
+  brideHandBare: asset('/images/bride-hand-bare.png'),      // Target: bride's bare hand
+  brideHandRing: asset('/images/bride-hand-ring.png'),      // Success: bride wearing ring
   
   // Marble / textures
   darkMarble: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80&auto=format',
@@ -87,6 +93,6 @@ export const config = {
   },
 
   music: {
-    src: "/bg-music.mp3",
+    src: asset('/bg-music.mp3'),
   },
 };
