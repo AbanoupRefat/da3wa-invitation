@@ -93,6 +93,6 @@ export const config = {
   },
 
   music: {
-    src: asset('/bg-music.mp3'),
+    src: asset('/bg-music.m4a'),
   },
 };
