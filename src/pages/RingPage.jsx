@@ -269,7 +269,7 @@ export default function RingPage() {
         if (dist < pullRadius) {
           if (!magnetActive.current) {
             magnetActive.current = true;
-            playSound('tick');
+            
             vibrate(12);
           }
           const strength = Math.pow(1 - dist / pullRadius, 1.6);
@@ -308,7 +308,7 @@ export default function RingPage() {
       startPointer.current = { x: e.clientX, y: e.clientY };
       lastPointer.current = { x: e.clientX, y: e.clientY, t: performance.now() };
       velocity.current = { x: 0, y: 0 };
-      playSound('pickup');
+      
       vibrate(8);
       if (hintRef.current) hintRef.current.style.opacity = '0.3';
       if (rafMomentum.current) {
@@ -341,7 +341,7 @@ export default function RingPage() {
       if (dist < pullRadius) {
         if (!magnetActive.current) {
           magnetActive.current = true;
-          playSound('tick');
+          
           vibrate(12);
         }
         const strength = Math.pow(1 - dist / pullRadius, 1.6) * 0.45;

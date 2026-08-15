@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { AudioContext } from '../App';
+import { FiVolume2, FiVolumeX } from 'react-icons/fi';
 import './MusicFAB.css';
 
 export default function MusicFAB() {
@@ -15,20 +16,7 @@ export default function MusicFAB() {
         id="music-toggle"
       >
         <div className="music-fab__icon">
-          {isPlaying ? (
-            <div className="equalizer">
-              <span className="bar bar-1"></span>
-              <span className="bar bar-2"></span>
-              <span className="bar bar-3"></span>
-              <span className="bar bar-4"></span>
-            </div>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18V5l12-2v13" />
-              <circle cx="6" cy="18" r="3" />
-              <circle cx="18" cy="16" r="3" />
-            </svg>
-          )}
+          {isPlaying ? <FiVolume2 size={24} /> : <FiVolumeX size={24} />}
         </div>
       </button>
     </>

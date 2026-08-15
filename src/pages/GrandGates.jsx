@@ -332,10 +332,10 @@ export default function GrandGates({ names = "A & L", onOpened, onTransitionComp
     };
   }, []);
 
-  // Increased threshold so the door opens much slower relative to finger movement (feels heavier)
-  const OPEN_THRESHOLD_PX = 800;
-  // Adjusted snap ratio so they still only need to pull it a reasonable physical distance to trigger
-  const RELEASE_SNAP_RATIO = 0.25;
+  // Moderate threshold so it feels heavy but is easy enough to pull open
+  const OPEN_THRESHOLD_PX = 400;
+  // Snap ratio: only need to pull it 30% of the threshold to snap open
+  const RELEASE_SNAP_RATIO = 0.30;
 
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
