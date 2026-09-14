@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 
 import BackgroundFX from './components/BackgroundFX';
-import MusicFAB from './components/MusicFAB';
 import GrandGates from './pages/GrandGates';
 import RingPage from './pages/RingPage';
 import MonogramPage from './pages/MonogramPage';
@@ -19,13 +18,6 @@ gsap.registerPlugin(Draggable);
 
 // Context for reduced motion preference
 export const MotionContext = createContext({ prefersReducedMotion: false });
-
-// Context for global audio
-export const AudioContext = createContext({
-  isPlaying: false,
-  hasInteracted: false,
-  toggleAudio: () => {},
-});
 
 function App() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -121,8 +113,7 @@ function App() {
 
   return (
     <MotionContext.Provider value={{ prefersReducedMotion }}>
-      <AudioContext.Provider value={{ isPlaying, hasInteracted, toggleAudio }}>
-        <div className="da3wa-app" style={{ 
+      <div className="da3wa-app" style={{ 
           overflowY: gatesOpened ? 'auto' : 'hidden', 
           height: gatesOpened ? 'auto' : '100dvh' 
         }}>
@@ -157,11 +148,7 @@ function App() {
             <VenuePage />
             <RSVPPage />
           </div>
-
-          {/* Floating Action Buttons */}
-          <MusicFAB />
         </div>
-      </AudioContext.Provider>
     </MotionContext.Provider>
   );
 }
