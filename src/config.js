@@ -89,7 +89,7 @@ export const config = {
   images: IMAGES,
 
   rsvp: {
-    googleScriptUrl: import.meta.env.VITE_RSVP_SCRIPT_URL || "",
+    googleScriptUrl: "https://script.google.com/macros/s/AKfycbyvsg_3JCVPBokpl6LeWSAKeJPO07Baqbl6Q-wh-oJPk60q41gddEh2hgnbqXDM9B7Y/exec",
   },
 
   music: {

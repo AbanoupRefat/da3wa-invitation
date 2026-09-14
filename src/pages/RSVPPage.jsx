@@ -45,9 +45,14 @@ export default function RSVPPage() {
 
     try {
       if (config.rsvp.googleScriptUrl) {
+        const data = Object.fromEntries(formData.entries());
+        
         await fetch(config.rsvp.googleScriptUrl, {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(data),
         });
       } else {
         // Mock submission when no URL configured
@@ -105,17 +110,15 @@ export default function RSVPPage() {
               />
             </div>
 
-
-
-            {/* Note */}
+            {/* Note / Message */}
             <div className="form-group">
-              <label htmlFor="rsvp-note" className="form-label">Personal Note <span className="optional">(optional)</span></label>
+              <label htmlFor="rsvp-note" className="form-label">Leave a Message <span className="optional">(optional)</span></label>
               <textarea
                 id="rsvp-note"
                 name="note"
                 className="form-input form-textarea"
                 placeholder="Share your wishes with the couple..."
-                rows="3"
+                rows="4"
               />
             </div>
 
