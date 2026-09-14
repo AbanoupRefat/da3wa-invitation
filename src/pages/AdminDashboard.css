@@ -1,0 +1,131 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background-color: #fcf9f5; /* Light ivory/cream background */
+  color: #2c3e35; /* Dark sage text for readability */
+  font-family: var(--font-body);
+  padding: 2rem 1rem;
+}
+
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(44, 62, 53, 0.1);
+}
+
+.admin-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: #2c3e35;
+  margin-bottom: 1.5rem;
+}
+
+.admin-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(220, 164, 124, 0.2); /* Soft gold border */
+}
+
+.stat-value {
+  font-size: 3rem;
+  font-family: var(--font-heading);
+  color: var(--gold-dark);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #698474; /* Sage */
+}
+
+.responses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.response-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(44, 62, 53, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.response-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.response-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(44, 62, 53, 0.05);
+  padding-bottom: 0.75rem;
+}
+
+.response-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #2c3e35;
+  margin: 0;
+}
+
+.response-date {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.response-message p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  font-style: italic;
+  margin: 0;
+}
+
+.admin-loading, .admin-error, .admin-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.admin-loading p, .admin-empty p {
+  color: #698474;
+  font-size: 1.1rem;
+}
+
+.admin-error p {
+  color: #d84545;
+}
+
+/* Re-use spinner but make it dark for light theme */
+.admin-loading .spinner {
+  border-color: rgba(44, 62, 53, 0.2);
+  border-top-color: var(--gold-dark);
+  margin-bottom: 1rem;
+}
